@@ -11,6 +11,19 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    ></androidx.recyclerview.widget.RecyclerView>
+    />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabNewRepository"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/blue"
+        android:tint="@color/white"
+        app:srcCompat="@drawable/plus"
+        app:shapeAppearanceOverlay="@style/CircularShape"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

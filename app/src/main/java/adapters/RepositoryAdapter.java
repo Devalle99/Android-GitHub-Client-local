@@ -51,7 +51,7 @@ public class RepositoryAdapter extends RecyclerView.Adapter<RepositoryAdapter.Vi
         }
 
         public void setRepositoryData(Repository repository) {
-            Glide.with(this).load(repository.getImage()).into(image);
+            Glide.with(context).load(repository.getImage()).into(image);
             repositoryName.setText(repository.getRepositoryName());
             repositoryLanguage.setText(repository.getRepositoryLanguage());
             repositoryOwner.setText(repository.getRepositoryOwner());
