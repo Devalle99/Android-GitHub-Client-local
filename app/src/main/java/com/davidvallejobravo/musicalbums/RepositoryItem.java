@@ -26,10 +26,11 @@ public class RepositoryItem extends Fragment {
         repositoryLanguage = view.findViewById(R.id.repositoryLanguage);
         repositoryOwner = view.findViewById(R.id.repositoryOwner);
 
-        Glide.with(this).load(repository.getImage()).into(image);
+        Glide.with(this).load(repository.getRepositoryOwner().getUserImage()).into(image);
+
         repositoryName.setText(repository.getRepositoryName());
         repositoryLanguage.setText(repository.getRepositoryLanguage());
-        repositoryOwner.setText(repository.getRepositoryOwner());
+        repositoryOwner.setText(repository.getRepositoryOwner().getUsername());
 
         return view;
     }

@@ -1,18 +1,23 @@
 package models;
 
+import com.google.gson.annotations.SerializedName;
+
+import retrofitclient.GithubApiClient;
+
 public class Repository {
     private long id;
+    @SerializedName("name")
     private String repositoryName;
+    @SerializedName("language")
     private String repositoryLanguage;
-    private String repositoryOwner;
-    private String image;
+    @SerializedName("owner")
+    private User repositoryOwner;
 
-    public Repository(long id, String repositoryName, String repositoryLanguage, String repositoryOwner, String image) {
+    public Repository(long id, String repositoryName, String repositoryLanguage, User repositoryOwner) {
         this.id = id;
         this.repositoryName = repositoryName;
         this.repositoryLanguage = repositoryLanguage;
         this.repositoryOwner = repositoryOwner;
-        this.image = image;
     }
 
     public long getId() {
@@ -39,19 +44,11 @@ public class Repository {
         this.repositoryLanguage = repositoryLanguage;
     }
 
-    public String getRepositoryOwner() {
+    public User getRepositoryOwner() {
         return repositoryOwner;
     }
 
-    public void setRepositoryOwner(String repositoryOwner) {
+    public void setRepositoryOwner(User repositoryOwner) {
         this.repositoryOwner = repositoryOwner;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 }
