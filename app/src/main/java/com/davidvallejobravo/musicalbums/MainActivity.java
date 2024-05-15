@@ -18,18 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import adapters.RepositoryAdapter;
+import database.RepositoryDatabaseHelper;
 import models.Repository;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofitclient.GithubApiClient;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<Repository> repositories;
     private RepositoryAdapter repositoryAdapter;
     private FloatingActionButton fabNewRepository;
-    private GithubApiClient apiClient = GithubApiClient.getGithubApiClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,30 +56,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadRepositories() {
-        repositories = new ArrayList<>();
-        String contentType = GithubApiClient.getContentType();
-        String authorization = GithubApiClient.getToken();
-        String apiVersion = GithubApiClient.getApiVersion();
-
-        Call<List<Repository>> call = apiClient.getRepos(contentType, authorization, apiVersion);
-        call.enqueue(new Callback<List<Repository>>() {
-            @Override
-            public void onResponse(Call<List<Repository>> call, Response<List<Repository>> response) {
-                if (response.isSuccessful()) {
-                    repositories = response.body();
-                    adaptList();
-                } else {
-                    System.out.println("********* ERROR EN LA LLAMADA A LA API *********");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Repository>> call, Throwable t) {
-                System.out.println("**************** ERROR DE CONEXION *******************");
-            }
-        });
-    }
-    private void adaptList() {
+        RepositoryDatabaseHelper repoDbHelper = new RepositoryDatabaseHelper(this);
+        repositories = repoDbHelper.getRepos();
         repositoryAdapter = new RepositoryAdapter(repositories, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(repositoryAdapter);
