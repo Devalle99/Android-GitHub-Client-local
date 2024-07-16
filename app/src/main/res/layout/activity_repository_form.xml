@@ -7,10 +7,102 @@
     android:layout_height="match_parent"
     tools:context=".RepositoryFormActivity">
 
+    <!-- Campo para el nombre -->
     <TextView
+        android:id="@+id/newNamelabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Prueba"
-        tools:ignore="MissingConstraints"
-    />
+        android:text="Nombre:"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/newNameField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese su nombre"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/newNamelabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newNamelabel"/>
+
+    <!-- Campo para el lenguaje -->
+    <TextView
+        android:id="@+id/newLanguageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lenguaje:"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newNameField"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/newLanguageField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el lenguaje"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/newLanguageLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newLanguageLabel"/>
+
+    <!-- Campo para la imagen -->
+    <TextView
+        android:id="@+id/newImageLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Imagen:"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newLanguageField"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/newImageField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese la URL de la imagen"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/newImageLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newImageLabel"/>
+
+    <!-- Campo para el propietario -->
+    <TextView
+        android:id="@+id/newOwnerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Propietario:"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newImageField"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/newOwnerField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el propietario"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/newOwnerLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newOwnerLabel"/>
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        app:layout_constraintTop_toBottomOf="@id/newOwnerField"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:onClick="saveRepository"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
